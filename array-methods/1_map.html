@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // .map() does not mutate the original array
+        // .map() receives a callback as an argument
+        // .map() returns a new array with the same length than the original one
+
+        // the argumented callback has a default parameter: each array position
+        // Each position from the new array will have the returned value on each iteration
+
+
+
+
+        // Example 1
+        const originalNumbers = [1, 2, 3, 4]
+
+        const doubledNumbers = originalNumbers.map((eachNumber) => {
+            return eachNumber * 2
+        })
+
+        console.log('Los números duplicados son', doubledNumbers)
+
+
+
+
+
+
+
+
+        console.log('-------')
+
+
+
+
+
+        // Example 2
+        const originalDrinks = ['agua', 'kas', 'cervemocho']
+
+        const capitalizedDrinks = originalDrinks.map(function (eachDrink) {
+            const firstLetter = eachDrink[0].toUpperCase()
+            const rest = eachDrink.substring(1)
+            const fullDrink = firstLetter + rest
+            return fullDrink
+        })
+
+        console.log('Las bebidas capitalizadas son', capitalizedDrinks)
+
+
+
+
+
+
+
+
+
+        console.log('-------')
+
+
+
+
+
+        // Example 3
+        const students = [
+            {
+                name: 'Tony Parker',
+                firstProject: 80,
+                secondProject: 75,
+                finalExam: 90
+            },
+            {
+                name: 'Marc Barchini',
+                firstProject: 84,
+                secondProject: 65,
+                finalExam: 65
+            },
+            {
+                name: 'Claudia Lopez',
+                firstProject: 45,
+                secondProject: 95,
+                finalExam: 99
+            },
+            {
+                name: 'Alvaro Briattore',
+                firstProject: 82,
+                secondProject: 92,
+                finalExam: 70
+            }
+        ]
+
+
+
+        // // Try 1: FAIL - necesitamos el nombre del alumno/a
+
+        // output -> [85, 68.8, 87.4, 76.80000000000001]
+
+        // const finalGrades = students.map(function (eachStudent) {
+        //     const projectsAvg = (eachStudent.firstProject + eachStudent.secondProject) / 2
+        //     const projectsPart = projectsAvg * .4
+        //     const examPart = eachStudent.finalExam * .6
+        //     return projectsPart + examPart
+        // })
+
+
+
+
+        // Try 2: FAIL - necesitan toda la info de cada alumno
+
+        // output -> [{student: 'Tony Parker', finalGrade: 85}......]
+
+        // const finalGrades = students.map(function (eachStudent) {
+        //     const projectsAvg = (eachStudent.firstProject + eachStudent.secondProject) / 2
+        //     const projectsPart = projectsAvg * .4
+        //     const examPart = eachStudent.finalExam * .6
+
+        //     const result = {
+        //         name: eachStudent.name,
+        //         finalGrade: projectsPart + examPart
+        //     }
+
+        //     return result
+        // })
+
+
+
+
+        // Try 3: SUCCESS - spread operator rules yay :D
+        const finalGrades = students.map(function (eachStudent) {
+            const projectsAvg = (eachStudent.firstProject + eachStudent.secondProject) / 2
+            const projectsPart = projectsAvg * .4
+            const examPart = eachStudent.finalExam * .6
+
+            const result = {
+                ...eachStudent,             // operador de propagación (spread operator)
+                finalGrade: projectsPart + examPart
+            }
+
+            return result
+        })
+
+
+        console.log('Las notas medias son', finalGrades)
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        // .forEach() receives a callback as an argument
+        // the argumented callback has a default parameter: each array position
+        // .forEach() does not return anything (undefined)
+
+        const students = [
+            { name: "Bob", age: 17 },
+            { name: "Susy", age: 18 },
+            { name: "Ted", age: 18 },
+            { name: "Sarah", age: 20 },
+            { name: "Bill", age: 19 }
+        ]
+
+        let sumYears = 0
+
+        // for (let i = 0; i < students.length; i++) {
+        //     sumYears += students[i].age
+        // }
+
+
+        students.forEach(function (eachStudent) {
+            sumYears += eachStudent.age
+        })
+
+        console.log(`El total de años es`, sumYears, 'años')
+        console.log(`La edad media es`, sumYears / students.length, 'años')
+
+    </script>
+</body>
+
+</html>

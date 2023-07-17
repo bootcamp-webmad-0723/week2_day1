@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // Objects and arrays are referenced, not passed as value
+
+        const drinks = ['Agua', 'Cocaola', 'Jagger']
+        const drinksCopy = drinks            // this is NOT a copy, just a reference
+
+        drinksCopy.pop()
+
+        console.log('ORIGINAL ->', drinks)
+        console.log('COPIA FAKE ->', drinksCopy)
+
+
+
+
+
+
+
+        const student = { name: 'Tammy', age: 33 }
+        const studenCopy = student           // THIS IS NOT A COPY, just a reference to the unique object on memory
+
+        studenCopy.age = 59
+
+
+
+        console.log('ORIGINAL ->', student)
+        console.log('COPIA FAKE ->', studenCopy)
+
+
+
+    </script>
+</body>
+
+</html>

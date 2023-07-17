@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // .reduce() does not mutate the original array
+        // .reduce() receives a callback as an argument
+        // .reduce() returns a single value from accumulating values from the array
+
+        // the  callback has TWO default parameters: accumulator and each array position
+        // the accumulator value will be the first array position for the first iteration, unless you pass an optional second argument to the method: the inicial accumulator
+        // the accumulator value will be the returned value for the rest of the iterations
+
+
+
+        const numbers = [2, 9, 4]
+
+        // const sumNumbers = numbers.reduce((acc, eachNumber) => {
+        //     return acc + eachNumber
+        // })
+
+        const sumNumbers = numbers.reduce((acc, eachNumber) => {
+            console.log('En esta iteración el acumulador vale ->', acc)
+            console.log('En esta iteración el elemento iterado vale ->', eachNumber)
+            console.log('Vamos a retornar la suma de uno y otro que es ->', acc + eachNumber)
+            console.log('------')
+            return acc + eachNumber
+        })
+
+        console.log('El sumatorio de los números es', sumNumbers)
+
+
+
+
+
+
+        console.log('------')
+
+
+
+
+        const years = [22, 36, 10, 3]
+
+        const sumYears = years.reduce((acc, eachYear) => {
+            return acc + eachYear
+        })
+
+        console.log('La edad media es', sumYears / years.length)
+
+
+
+
+
+
+
+        console.log('------')
+
+
+
+
+        // Example 3
+        const people = [
+            { name: 'Candice', age: 25 },
+            { name: 'Tammy', age: 30 },
+            { name: 'Allen', age: 20 },
+            { name: 'Nettie', age: 21 },
+            { name: 'Stuart', age: 17 },
+            { name: 'Bill', age: 19 }
+        ]
+
+        const sumYearsPeople = people.reduce((acc, eachPerson) => {
+            return acc + eachPerson.age
+        }, 0)
+
+        console.log('El sumatorio de edades es', sumYearsPeople)
+
+
+
+
+
+
+
+        console.log('---------')
+
+
+
+
+        const product = {
+            name: 'AmazonBasics Apple Certified Lightning to USB Cable',
+            price: 7.99,
+            manufacturer: 'Amazon',
+            reviews: [
+                { user: 'Pavel Nedved', comments: 'It was really useful, strongly recommended', rate: 4 },
+                { user: 'Alvaro Trezeguet', comments: 'It lasted 2 days', rate: 1 },
+                { user: 'David Recoba', comments: 'Awesome', rate: 5 },
+                { user: 'Jose Romero', comments: 'Good value for money', rate: 4 },
+                { user: 'Antonio Cano', comments: 'It broked really fast', rate: 2 }
+            ]
+        }
+
+        const sumRatings = product.reviews.reduce(function (acc, eachReview) {
+            return acc + eachReview.rate
+        }, 0)
+
+        console.log('El sumatorio de reviews es', sumRatings)
+        console.log('La media de las reviews es', sumRatings / product.reviews.length)
+
+
+    </script>
+</body>
+
+</html>
